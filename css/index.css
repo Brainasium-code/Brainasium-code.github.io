@@ -1,0 +1,91 @@
+
+/* img {
+display: block;
+max-width:800px;
+max-height:600px;
+width: auto;
+height: auto;
+} */
+
+#overlay{
+position:fixed;
+z-index:99999;
+top:0;
+left:0;
+bottom:0;
+right:0;
+background:rgba(255,255,255, 1);
+transition-duration: 1s;
+}
+
+#overlay:hover{
+z-index: -1;
+opacity: 0;
+}
+
+/* #loading:hover {
+-webkit-transform: scale(0.01);
+-ms-transform: scale(0.01);
+transform: scale(0.01);
+transition: 3s 0.4s;
+transition-delay: 0.5s;
+} */
+
+/* #contact{
+transition-duration: 1s;
+} */
+
+body,
+h1 {
+font-family: "Raleway", sans-serif
+}
+
+body,
+html {
+height: 100%
+}
+
+body {
+-ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+font-size: 1rem;
+scroll-behavior: smooth;
+}
+
+a:link {
+text-decoration: none;
+}
+
+a:hover {
+/* text-decoration: underline; */
+color: lightgrey;
+}
+
+@include media-breakpoint-up(sm) {
+html {
+  font-size: 1.2rem;
+}
+}
+
+@include media-breakpoint-up(md) {
+html {
+  font-size: 1.4rem;
+}
+}
+
+@include media-breakpoint-up(lg) {
+html {
+  font-size: 1.6rem;
+}
+}
+
+ul {
+  list-style-type: none;
+}
