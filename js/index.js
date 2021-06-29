@@ -1,12 +1,12 @@
 var data = [30, 86, 168, 281, 303, 365];
 
-d3.select(".chart")
-  .selectAll("div")
-  .data(data)
-    .enter()
-    .append("div")
-    .style("width", function(d) { return d + "px"; })
-    .text(function(d) { return d; });
+// d3.select(".chart")
+//   .selectAll("div")
+//   .data(data)
+//     .enter()
+//     .append("div")
+//     .style("width", function(d) { return d + "px"; })
+//     .text(function(d) { return d; });
 
     // Set the date we're counting down to
     var countDownDate = new Date("July 01, 2021 00:00:00").getTime();
@@ -56,10 +56,10 @@ d3.select(".chart")
       document.getElementsByTagName("BUTTON")[1].style.display = "none";
     };
 
-    setTimeout(function(){
-      document.getElementById("overlay").style.opacity = "0";
-      document.getElementById("overlay").style.zIndex = "-1";
-    }, 2000);
+    // setTimeout(function(){
+    //   document.getElementById("overlay").style.opacity = "0";
+    //   document.getElementById("overlay").style.zIndex = "-1";
+    // }, 2000);
 
     function email_me() {
       var name = document.getElementsByName("Name").value
