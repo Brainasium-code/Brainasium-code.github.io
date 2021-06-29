@@ -1,12 +1,4 @@
 theme: jekyll-theme-slate
 url: https://brainasium.app
-sitemap:
-    filename: "/sitemap.xml"
-    # exclude:
-    #     - "/atom.xml"
-    #     - "/feed.xml"
-    #     - "/feed/index.xml"
-    include_posts:
-        - "/index.html"
-    change_frequency_name: "change_frequency"
-    priority_name: "priority"
+plugins:
+  - jekyll-sitemap
