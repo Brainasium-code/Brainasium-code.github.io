@@ -61,12 +61,12 @@ d3.select(".chart")
       document.getElementById("overlay").style.zIndex = "-1";
     }, 2000);
 
-    // function email_me() {
-    //   var name = document.getElementsByName("Name").value
-    //   var email = document.getElementsByName("Email").value
-    //   var sub = document.getElementsByName("Subject").value
-    //   var mes = document.getElementsByName("Message").value
-    //   document.getElementById("tests").innerHTML = '<a href="mailto:support@con-struct.solutions?subject=' + name +
-    //   ' - ' + email + ' - ' + sub + '&body=' + mes + 'test"class="w3-button w3-light-grey w3-padding-large">Test</a>';
-    //   // document.getElementsByTagName("BUTTON").;
-    // }
+    function email_me() {
+      var name = document.getElementsByName("Name").value
+      var email = document.getElementsByName("Email").value
+      var sub = document.getElementsByName("Subject").value
+      var mes = document.getElementsByName("Message").value
+      document.getElementById("tests").innerHTML = '<a href="mailto:support@con-struct.solutions?subject=' + name +
+      ' - ' + email + ' - ' + sub + '&body=' + mes + 'test"class="w3-button w3-light-grey w3-padding-large">Test</a>';
+      // document.getElementsByTagName("BUTTON").;
+    }
