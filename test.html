@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Console Log</title>
+    <style>
+      div {
+        background-color: black;
+        background-image: radial-gradient(
+          rgba(0, 150, 0, 0.479), black 120%
+        );
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+        padding: 2rem;
+        color: white;
+        font: 0.75rem Inconsolata, monospace;
+        text-shadow: 0 0 5px #C8C8C8;
+        }
+        div::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: repeating-linear-gradient(
+              0deg,
+              rgba(0, 0, 0, 0.05),
+              rgba(0, 0, 0, 0.15) 1px,
+              transparent 1px,
+              transparent 2px
+              );
+          pointer-events: none;
+        }
+      }
+      ::selection {
+        background: #0080FF;
+        text-shadow: none;
+      }
+      pre {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+        <div>
+            <pre><output id="console"></output></pre>
+        </div>
+    <script>
+        var i = 0;
+        var txt ='> webpack: Compiling...\n'+
+'           Hash: 33d8c38093d5e8261eac\n'+
+'           Version: webpack 3.11.0\n'+
+'           Time: 1337ms\n'+
+'                                          Asset       Size  Chunks                    Chunk Names\n'+
+'                                     project.js    12.3 MB       0  [emitted]  [big]  project\n'+
+'                                   dashboard.js    6.36 MB       1  [emitted]  [big]  dashboard\n'+
+'                                    organize.js    5.29 MB       2  [emitted]  [big]  organize\n'+
+'                                     proPens.js    4.92 MB       3  [emitted]  [big]  proPens\n'+
+'           0.81c79b4db476a98d272f.hot-update.js    87.4 kB       0  [emitted]         project\n'+
+'           1.81c79b4db476a98d272f.hot-update.js    7.94 kB       1  [emitted]         dashboard\n'+
+'           81c79b4db476a98d272f.hot-update.json   52 bytes          [emitted]\n'+
+'                                  manifest.json  272 bytes          [emitted]\n'+
+'           [./app/javascript/common/components/Overlay.js] ./app/javascript/common/components/Overlay.js 2.42 kB {0} {1} [built]';
+        var speed = .01;
+        window.onload = function typeWriter() {
+        if (i < txt.length) {
+          document.getElementById("console").innerHTML += txt.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+    </script>
+  </body>
+</html>
+
