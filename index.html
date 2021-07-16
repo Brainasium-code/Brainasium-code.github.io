@@ -26,18 +26,29 @@
       background-repeat: no-repeat;
     }
 
+    @media screen and (max-width: 580px) {
+      #navbar a {
+        /* float: none; */
+        /* display: block; */
+        /* text-align: left; */
+        font-size: medium;
+      }
+    }
+
   </style>
 
 <body>
 
   <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-    <div class="w3-display-topleft w3-padding-large w3-xlarge">
-      <a href="#">Brainasium.app</a>
-    </div>
-    <div class="w3-display-topright w3-padding-large w3-xlarge">
-      <a href="https://brain-asium.com"><i class="fa fa-sign-in"></i> Login</a> | 
-      <a title="Contact Us" href="mailto:info@brainasium.app?subject=Contact Information // Consultation Request&body=Hi Brainasium!%0D%0A %0D%0AName: %0D%0AEmail: %0D%0A %0D%0AI am intrested in...%0D%0A">
-        <i class="fa fa-envelope-o"></i></a>
+    <div id="navbar">
+      <div class="w3-display-topleft w3-padding-large w3-xlarge">
+        <a href="#">Brainasium.app</a>
+      </div>
+      <div class="w3-display-topright w3-padding-large w3-xlarge">
+        <a href="https://brain-asium.com"><i class="fa fa-sign-in"></i> Login</a> | 
+        <a title="Contact Us" href="mailto:info@brainasium.app?subject=Contact Information // Consultation Request&body=Hi Brainasium!%0D%0A %0D%0AName: %0D%0AEmail: %0D%0A %0D%0AI am intrested in...%0D%0A">
+          <i class="fa fa-envelope-o"></i></a>
+      </div>
     </div>
     <div class="w3-display-middle">
       <h1 class="display-4 w3-animate-top">COMING SOON</h1>
