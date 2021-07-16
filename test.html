@@ -6,74 +6,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Console Log</title>
     <style>
-      div {
-        background-color: black;
-        background-image: radial-gradient(
-          rgba(0, 150, 0, 0.479), black 120%
-        );
-        height: 100vh;
-        margin: 0;
-        overflow: hidden;
-        padding: 2rem;
-        color: white;
-        font: 0.75rem Inconsolata, monospace;
-        text-shadow: 0 0 5px #C8C8C8;
+
+            .console {
+                counter-increment: line;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100vw;
+                height: 10vh;
+                background-color: black;
+                background-image: radial-gradient(
+                    rgba(0, 150, 0, 0.479), black 120%
+                );
+                margin: 0;
+                overflow: auto;
+                display: flex;
+                flex-direction: column-reverse;
+                overflow-wrap: anywhere;
+                /* overflow-anchor: auto; */
+                /* padding: 2rem; */
+                color: white;
+                font: 0.75rem Inconsolata, monospace;
+                text-shadow: 0 0 5px #C8C8C8;
+                }
+                .console::after {
+                    content: "";
+                    position: fixed;
+                    bottom: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 10vh;
+                    background: repeating-linear-gradient(
+                        0deg,
+                        rgba(0, 0, 0, 0.05),
+                        rgba(0, 0, 0, 0.15) 1px,
+                        transparent 1px,
+                        transparent 2px
+                        );
+                    pointer-events: none;
+                }
+                pre:before {
+                    color: rgb(128, 128, 128);
+                    content: counter(line);
+                    /* display: inline; */
+                }
+            ::selection {
+              background: #0080FF;
+              text-shadow: none;
+            }
+            pre {
+                counter-reset: line;
+                margin: 0;
+            }
+            .blink_me {
+                animation: blinker 1s linear infinite;
+            }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
         }
-        div::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          background: repeating-linear-gradient(
-              0deg,
-              rgba(0, 0, 0, 0.05),
-              rgba(0, 0, 0, 0.15) 1px,
-              transparent 1px,
-              transparent 2px
-              );
-          pointer-events: none;
-        }
-      }
-      ::selection {
-        background: #0080FF;
-        text-shadow: none;
-      }
-      pre {
-        margin: 0;
       }
     </style>
   </head>
   <body>
-        <!-- <div> -->
-            <pre><output id="console"></output></pre>
-        <!-- </div> -->
+    <div class="console">
+      <pre><output id="console"></output><span id="anchor" class='blink_me'>_</span></pre>
+    </div>
+
     <script>
-        var i = 0;
-        var txt ='> webpack: Compiling...\n'+
-'           Hash: 33d8c38093d5e8261eac\n'+
-'           Version: webpack 3.11.0\n'+
-'           Time: 1337ms\n'+
-'                                          Asset       Size  Chunks                    Chunk Names\n'+
-'                                     project.js    12.3 MB       0  [emitted]  [big]  project\n'+
-'                                   dashboard.js    6.36 MB       1  [emitted]  [big]  dashboard\n'+
-'                                    organize.js    5.29 MB       2  [emitted]  [big]  organize\n'+
-'                                     proPens.js    4.92 MB       3  [emitted]  [big]  proPens\n'+
-'           0.81c79b4db476a98d272f.hot-update.js    87.4 kB       0  [emitted]         project\n'+
-'           1.81c79b4db476a98d272f.hot-update.js    7.94 kB       1  [emitted]         dashboard\n'+
-'           81c79b4db476a98d272f.hot-update.json   52 bytes          [emitted]\n'+
-'                                  manifest.json  272 bytes          [emitted]\n'+
-'           [./app/javascript/common/components/Overlay.js] ./app/javascript/common/components/Overlay.js 2.42 kB {0} {1} [built]';
-        var speed = .01;
-        window.onload = function typeWriter() {
+      var i = 0;
+      var txt =
+        "  webpack: Compiling...\n" +
+        "           Hash: 33d8c38093d5e8261eac\n" +
+        "           Version: webpack 3.11.0\n" +
+        "           Time: 1337ms\n" +
+        "                                          Asset       Size  Chunks                    Chunk Names\n" +
+        "                                     project.js    12.3 MB       0  [emitted]  [big]  project\n" +
+        "                                   dashboard.js    6.36 MB       1  [emitted]  [big]  dashboard\n" +
+        "                                    organize.js    5.29 MB       2  [emitted]  [big]  organize\n" +
+        "                                     proPens.js    4.92 MB       3  [emitted]  [big]  proPens\n" +
+        "           0.81c79b4db476a98d272f.hot-update.js    87.4 kB       0  [emitted]         project\n" +
+        "           1.81c79b4db476a98d272f.hot-update.js    7.94 kB       1  [emitted]         dashboard\n" +
+        "           81c79b4db476a98d272f.hot-update.json   52 bytes          [emitted]\n" +
+        "                                  manifest.json  272 bytes          [emitted]\n" +
+        "           [./app/javascript/common/components/Overlay.js] ./app/javascript/common/components/Overlay.js 2.42 kB {0} {1} [built]\n" +
+        ">";
+        var speed = 0.01;
+      window.onload = function typeWriter() {
         if (i < txt.length) {
           document.getElementById("console").innerHTML += txt.charAt(i);
           i++;
           setTimeout(typeWriter, speed);
         }
-      }
+      };
+    </script>
+    <script>
+      webSocket = new WebSocket("ws://brain-asium.com/ws_log");
+    //   exwebSocket = new WebSocket("ws://127.0.0.1:5000/ws_log");
+      exwebSocket.onmessage = function (event) {
+        var f = document.getElementById("console").contentDocument;
+        var text = "";
+        var msg = JSON.parse(event.data);
+        var time = new Date(msg.date);
+        var timeStr = time.toLocaleTimeString();
+        console.log(event.data);
+
+        switch (msg.type) {
+          case "id":
+            clientID = msg.id;
+            setUsername();
+            break;
+          case "username":
+            text =
+              "<b>User <em>" +
+              msg.name +
+              "</em> signed in at " +
+              timeStr +
+              "</b><br>";
+            break;
+          case "message":
+            text =
+              "(" + timeStr + ") <b>" + msg.name + "</b>: " + msg.text + "<br>";
+            break;
+          case "rejectusername":
+            text =
+              "<b>Your username has been set to <em>" +
+              msg.name +
+              "</em> because the name you chose is in use.</b><br>";
+            break;
+          case "userlist":
+            var ul = "";
+            for (i = 0; i < msg.users.length; i++) {
+              ul += msg.users[i] + "<br>";
+            }
+            document.getElementById("userlistbox").innerHTML = ul;
+            break;
+        }
+
+        if (text.length) {
+          f.write(text);
+          document.getElementById("console").contentWindow.scrollByPages(1);
+        }
+      };
     </script>
   </body>
 </html>
-
