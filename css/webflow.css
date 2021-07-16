@@ -585,7 +585,7 @@
      background-color: #f4f4f4;
      /* background-image: url("https://assets.website-files.com/5c6eb5400253230156de2bd6/5cdc00e3a4217f7862153ae2_portfolio%202%20-%20wide.svg"); */
      /* background-image: url("../img/bg.gif"); */
-     background: linear-gradient( rgba(0, 0, 0, 0.199), rgba(0, 0, 0, 0.999) ), url("https://picsum.photos/2765/480?grayscale&blur=2");
+     background: linear-gradient( rgba(0, 0, 0, 0.199), rgba(0, 0, 0, 0.999) ), url("https://picsum.photos/2765/480?grayscale&blur=2&random=1");
      background-position: 0px 0px;
      background-size: cover;
      color: #fff;

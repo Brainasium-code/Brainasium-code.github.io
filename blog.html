@@ -137,7 +137,7 @@
                         }
                         display += `<a style='background-image:url(${src});' href="${item.link}" class="blog-preview-image w-inline-block"></a>`;
                         display += `<div class="blog-summary-wrap">`;
-                        display += `<a href="'${item.link}'" class="blog-heading-link">${item.title}</a>`;
+                        display += `<a href="${item.link}" class="blog-heading-link">${item.title}</a>`;
                         var yourString = item.description.replace(/<img[^>]*>/g,""); //replace with your string.
                         yourString = yourString.replace('h4', 'p');
                         yourString = yourString.replace('h3', 'p');
