@@ -6,8 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Console Log</title>
     <style>
-
+        /* Hide scrollbar for Chrome, Safari and Opera */
+            .console::-webkit-scrollbar {
+                display: none;
+            }
             .console {
+                -ms-overflow-style: none;  /* IE and Edge */
+                scrollbar-width: none;  /* Firefox */
                 counter-increment: line;
                 position: absolute;
                 bottom: 0;
@@ -45,21 +50,12 @@
                         );
                     pointer-events: none;
                 }
-                pre:before {
-                    color: rgb(128, 128, 128);
-                    content: counter(line);
-                    /* display: inline; */
-                }
             ::selection {
               background: #0080FF;
               text-shadow: none;
             }
-            pre {
-                counter-reset: line;
-                margin: 0;
-            }
             .blink_me {
-                animation: blinker 1s linear infinite;
+                animation: blinker .75s linear infinite;
             }
 
       @keyframes blinker {
@@ -75,37 +71,15 @@
     </div>
 
     <script>
-      var i = 0;
-      var txt =
-        "  webpack: Compiling...\n" +
-        "           Hash: 33d8c38093d5e8261eac\n" +
-        "           Version: webpack 3.11.0\n" +
-        "           Time: 1337ms\n" +
-        "                                          Asset       Size  Chunks                    Chunk Names\n" +
-        "                                     project.js    12.3 MB       0  [emitted]  [big]  project\n" +
-        "                                   dashboard.js    6.36 MB       1  [emitted]  [big]  dashboard\n" +
-        "                                    organize.js    5.29 MB       2  [emitted]  [big]  organize\n" +
-        "                                     proPens.js    4.92 MB       3  [emitted]  [big]  proPens\n" +
-        "           0.81c79b4db476a98d272f.hot-update.js    87.4 kB       0  [emitted]         project\n" +
-        "           1.81c79b4db476a98d272f.hot-update.js    7.94 kB       1  [emitted]         dashboard\n" +
-        "           81c79b4db476a98d272f.hot-update.json   52 bytes          [emitted]\n" +
-        "                                  manifest.json  272 bytes          [emitted]\n" +
-        "           [./app/javascript/common/components/Overlay.js] ./app/javascript/common/components/Overlay.js 2.42 kB {0} {1} [built]\n" +
-        ">";
-        var speed = 0.01;
-      window.onload = function typeWriter() {
-        if (i < txt.length) {
-          document.getElementById("console").innerHTML += txt.charAt(i);
-          i++;
-          setTimeout(typeWriter, speed);
-        }
-      };
-    </script>
-    <script>
-      webSocket = new WebSocket("ws://brain-asium.com/ws_log");
-    //   exwebSocket = new WebSocket("ws://127.0.0.1:5000/ws_log");
+    //   webSocket = new WebSocket("ws://brain-asium.com/ws_log");
+    // window.addEventListener('load', function () {
+    // alert("It's loaded!")
+    // })
+      exwebSocket = new WebSocket("ws://127.0.0.1:5000/ws_log");
+      console.log("Websocket connected");
       exwebSocket.onmessage = function (event) {
-        var f = document.getElementById("console").contentDocument;
+        // var f = document.getElementById("console").contentDocument;
+        var f = document.getElementById("console").innerHTML;
         var text = "";
         var msg = JSON.parse(event.data);
         var time = new Date(msg.date);
@@ -145,8 +119,10 @@
         }
 
         if (text.length) {
-          f.write(text);
-          document.getElementById("console").contentWindow.scrollByPages(1);
+            document.getElementById("console").innerHTML += text
+        //   f.write(text);
+        //   f += text;
+        //   document.getElementById("console").contentWindow.scrollByPages(1);
         }
       };
     </script>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>WIFI QRCode generator</title>
+
+    <!-- JS & CSS -->
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="qrcode.js"></script>
+
+    <style>
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #section-to-print, #section-to-print * {
+    visibility: visible;
+  }
+  #section-to-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">QR text:</span>
+            <input id="text" type="text" class="form-control" placeholder="URL" aria-label="URL" aria-describedby="basic-addon1" value="https://brainasium.app/qr">
+            <button class="btn btn-primary" onclick="makeCode()">Create QR Code</button>
+          </div>
+          <p class="card-text"><small id="updated" class="text-muted"></small></p>
+        </div>
+      </nav>
+    <div class="container mt-5">
+        <div class="card mb-3 text-center" id="section-to-print">
+            <div id="qrcode" class="card-img-top d-flex justify-content-center p-3"></div>
+            <small id="title" class="card-text text-muted mb-2"></small>
+            <!-- <div class="card-body">
+              <h5 class="card-title">WIFI QR Code</h5>
+              <small id="title" class="card-text text-muted"></small>
+              <p class="card-text"><small id="updated" class="text-muted"></small></p>
+            </div> -->
+          </div>
+        <br />
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+        // width : 300,
+        // height : 300
+    });
+    
+    function makeCode () {		
+        var elText = document.getElementById("text");
+        
+        // if (!elText.value) {
+        //     alert("Input a text");
+        //     elText.focus();
+        //     return;
+        // }
+        qrcode.makeCode(elText.value);
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date+' '+time;
+        document.getElementById("updated").innerHTML = "Last updated " +  today
+
+    }
+    
+    makeCode();
+    
+    $("#text").
+        on("blur", function () {
+            makeCode();
+        }).
+        on("keydown", function (e) {
+            if (e.keyCode == 13) {
+                makeCode();
+            }
+            // document.getElementById("updated").innerHTML = "Last updated " +  today
+            document.getElementById("title").innerHTML = document.getElementById("text").value
+        });
+    </script>
+  </body>
+</html>
