@@ -1,13 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <!-- This site was created by Connor Elliott. https://www.linkedin.com/in/connor-elliott-86686344/ -->
+  <!-- Last Published: Thu July 16 2021 06:16:11 GMT+0000 (UTC) -->
+  <html lang="en">
+
   <head>
-    <!-- Required meta tags -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+
+    <link href="/css/webflow.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      WebFont.load({
+        google: {
+          families: ["Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"]
+        }
+      });
+    </script>
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+    <script type="text/javascript">
+      !function (o, c) {
+        var n = c.documentElement
+          , t = " w-mod-";
+        n.className += t + "js",
+          ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+      }(window, document);
+    </script>
+    <link href="img/icon/box.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="img/logo/red_icon_512.png" rel="apple-touch-icon" type="image/png">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <title>WIFI QR Code generator</title>
 
@@ -16,129 +40,229 @@
     <script type="text/javascript" src="js/qrcode.js"></script>
 
     <style>
-@media print {
-  body * {
-    visibility: hidden;
-  }
-  #section-to-print, #section-to-print * {
-    visibility: visible;
-  }
-  #section-to-print {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-}
+      @media print {
+        body * {
+          visibility: hidden;
+        }
 
+        #section-to-print,
+        #section-to-print * {
+          visibility: visible;
+        }
+
+        #section-to-print {
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
     </style>
   </head>
+
   <body>
-
-
-    <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
-      </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+    <div data-collapse="medium" data-animation="default" data-duration="400" class="navigation w-nav">
+      <div class="navigation-wrap">
+        <a href="/" class="logo-link w-nav-brand">
+          <img src="img\logo\red_icon_small.png" width="75" alt="Brainasium Solutions LLC Logo" />
+        </a>
+        <div class="menu">
+          <nav role="navigation" class="navigation-items w-nav-menu">
+            <a href="/about" class="navigation-item w-nav-link">About</a>
+            <a href="/projects" class="navigation-item w-nav-link w--current">Work</a>
+            <a href="/team" class="navigation-item w-nav-link">team</a>
+            <a href="/blog" class="navigation-item w-nav-link">Blog</a>
+            <a href="/contact" class="navigation-item w-nav-link">Contact</a>
+          </nav>
+          <div class="menu-button w-nav-button">
+            <img src="img/icon/menu-icon.png" width="22" alt="" class="menu-icon" />
+          </div>
+        </div>
+        <a title="Contact Us"
+          href="mailto:info@brainasium.app?subject=Contact Information // Consultation Request&body=Hi Brainasium!%0D%0A %0D%0AName: %0D%0AEmail: %0D%0A %0D%0AI am intrested in...%0D%0A"
+          class="button cc-contact-us w-inline-block">
+          <div>Contact US</div>
+        </a>
+      </div>
+    </div>
+    <!-- <div class="section cc-home-wrap">
+      <div class="intro-header cc-subpage">
+        <div class="intro-content">
+          <div class="heading-jumbo">
+            QR Codes<br />
+          </div>
+        </div>
+      </div>
     </div> -->
 
-
-
-
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-          <div class="input-group">
-            <span class="input-group-text" id="basic-addon1">QR Code text:</span>
-            <input id="text" type="text" class="form-control" placeholder="URL" aria-label="URL" aria-describedby="basic-addon1" value="https://brainasium.app/qr">
-            <button class="btn btn-primary" onclick="makeCode()">Create QR Code</button>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">WIFI QR Code</button>
-          </div>
-          <p class="card-text"><small id="updated" class="text-muted"></small></p>
+    <div class="section">
+      <div class="container">
+        <div class="section-heading-wrap">
+          <div class="label cc-light">Our Work</div>
+          <h2>QR Codes</h2>
         </div>
-      </nav>
-    <div class="container mt-5">
-        <div class="card mb-3 text-center" id="section-to-print">
-            <div id="qrcode" class="card-img-top d-flex justify-content-center p-3"></div>
-            <small id="title" class="card-text text-muted mb-2"></small>
-          </div>
-        <br />
-    </div>
+        <div class="w-layout-grid projects-grid">
+          <div id="QR_Code">
+            <!-- <a href="https://brainasium.app/qr" class="project-cover-link w-inline-block">
+              <img src="img/qr.png" alt="" class="project-cover-pic" style="width: 1140px; height: 569px; object-fit: cover;" />
+            </a> -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                  role="tab" aria-controls="home" aria-selected="true">URL</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                  role="tab" aria-controls="profile" aria-selected="false">WIFI</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
+                  role="tab" aria-controls="contact" aria-selected="false">Card</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <nav class="navbar navbar-light bg-light">
+                  <div class="container-fluid">
+                    <div class="input-group">
+                      <span class="input-group-text" id="basic-addon1">QR Code text:</span>
+                      <input id="text" type="text" class="form-control" placeholder="URL" aria-label="URL" aria-describedby="basic-addon1" value="https://brainasium.app/qr">
+                      <button class="btn btn-primary" onclick="makeCode()">Create QR Code</button>
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">WIFI QR Code</button>
+                    </div>
+                    <p class="card-text"><small id="updated" class="text-muted"></small></p>
+                  </div>
+                </nav>
+              <div class="container mt-5">
+                  <div class="card mb-3 text-center" id="section-to-print">
+                      <div id="qrcode" class="card-img-top d-flex justify-content-center p-3"></div>
+                      <small id="title" class="card-text text-muted mb-2"></small>
+                    </div>
+                  <br />
+              </div>
+              </div>
+              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
+              </div>
+              <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+              </div>
+            </div>
+          </div>
+
+          <!-- <div id="">
+            <a href="https://brain-asium.com" class="project-cover-link w-inline-block">
+              <img src="img/warehouse.jpg" alt="" class="project-cover-pic"
+                style="width: 1140px; height: 569px; object-fit: cover;" />
+            </a>
+            <div class="project-name-wrap">
+              <a href="/work/project-2" class="project-name-link">Project - WMS</a>
+              <div class="paragraph-light">Product Design - WMS</div>
+            </div>
+          </div> -->
+
+          <!-- <div id="">
+            <a href="/work/project-3" class="project-cover-link w-inline-block">
+              <img src="/img/property-taxes.jpg" alt="" class="project-cover-pic"
+                style="width: 1140px; height: 569px; object-fit: cover;" />
+            </a>
+            <div class="project-name-wrap">
+              <a href="/work/project-3" class="project-name-link">Project - Property Tax Data</a>
+              <div class="paragraph-light">Animation</div>
+            </div>
+          </div> -->
+
+        </div>
+      </div>
+    </div>
 
     <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">WIFI QR Code Generator</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="ssid" placeholder="SSID">
-          <label for="ssid">WIFI Name / SSID</label>
-        </div>
-        <div class="form-floating">
-          <input type="password" class="form-control" id="wifi_pw" placeholder="Password">
-          <label for="wifi_pw">Password</label>
-        </div>
-
-        <!-- <div class="form-check form-check-inline mt-3">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-          <label class="form-check-label" for="inlineRadio1">WPA</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">WPA2</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2">WEP</label>
-        </div> -->
-
-        <div class="container mt-5">
-          <div class="card mb-3 text-center" id="section-to-print">
-              <div id="wifi_qrcode" class="card-img-top d-flex justify-content-center p-3"></div>
-              <small id="wifi_text" class="card-text text-muted mb-2"></small>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">WIFI QR Code Generator</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="ssid" placeholder="SSID">
+              <label for="ssid">WIFI Name / SSID</label>
             </div>
-          <br />
+            <div class="form-floating">
+              <input type="password" class="form-control" id="wifi_pw" placeholder="Password">
+              <label for="wifi_pw">Password</label>
+            </div>
+            <div class="container mt-5">
+              <div class="card mb-3 text-center" id="section-to-print">
+                <div id="wifi_qrcode" class="card-img-top d-flex justify-content-center p-3"></div>
+                <small id="wifi_text" class="card-text text-muted mb-2"></small>
+              </div>
+              <br />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="window.print()">Print this page</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="makeWIFICode()">GO!</button>
+          </div>
         </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" onclick="window.print()">Print this page</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="makeWIFICode()">GO!</button>
       </div>
     </div>
-  </div>
-</div>
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <div class="section cc-cta">
+      <div class="container">
+        <div class="cta-wrap">
+          <div>
+            <div class="cta-text">
+              <div class="heading-jumbo-small">
+                Grow your business.<br />
+              </div>
+              <div class="paragraph-bigger cc-bigger-light inline">
+                Today is the day to Optimize the business of your dreams.
+                Your Automation is our mission — lets blow your customers away.<br>
+              </div>
+            </div>
+            <a href="/contact" class="button cc-jumbo-button w-inline-block">
+              <div>Start Now</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="section">
+      <div class="container">
+        <div class="footer-wrap">
+          <a href="https://brainasium.app/" target="_blank" class="webflow-link w-inline-block">
+            <img src="img\logo\brain.png" width="20" alt="" class="webflow-logo-tiny" />
+            <div class="paragraph-tiny">Powered by Brainasium Solutions LLC</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://d1tdp7z6w94jbb.cloudfront.net/js/jquery-3.3.1.min.js" type="text/javascript"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- WebFolw Badge -->
+    <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+
+    <script src="./js/webflow.js"></script>
     <script type="text/javascript">
 
-    var qrcode = new QRCode(document.getElementById("qrcode"), {
-    });
+      var qrcode = new QRCode(document.getElementById("qrcode"), {
+      });
 
-    var wifi_qrcode = new QRCode(document.getElementById("wifi_qrcode"), {
-    });
-    
-    function makeCode () {		
+      var wifi_qrcode = new QRCode(document.getElementById("wifi_qrcode"), {
+      });
+
+      function makeCode() {
         var elText = document.getElementById("text");
-        
+
         // if (!elText.value) {
         //     alert("Input a text");
         //     elText.focus();
@@ -147,35 +271,38 @@
         qrcode.makeCode(elText.value);
 
         var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var dateTime = date+' '+time;
-        document.getElementById("updated").innerHTML = "Last updated " +  today
+        var dateTime = date + ' ' + time;
+        document.getElementById("updated").innerHTML = "Last updated " + today
 
-    }
+      }
 
-    function makeWIFICode () {		
+      function makeWIFICode() {
         var ssid = document.getElementById("ssid");
         var wifi_pw = document.getElementById("wifi_pw");
 
-        wifi_qrcode.makeCode("WIFI:T:WPA;S:"+ ssid.value + ";P:"+ wifi_pw.value +";;");
-        document.getElementById("wifi_text").innerHTML = "SSID: "+ ssid.value + "<br/> P: "+ wifi_pw.value
-    }
+        wifi_qrcode.makeCode("WIFI:T:WPA;S:" + ssid.value + ";P:" + wifi_pw.value + ";;");
+        document.getElementById("wifi_text").innerHTML = "SSID: " + ssid.value + "<br/> P: " + wifi_pw.value
+      }
 
-    makeCode();
-    makeWIFICode();
-    
-    $("#text").
+      makeCode();
+      makeWIFICode();
+
+      $("#text").
         on("blur", function () {
-            makeCode();
+          makeCode();
         }).
         on("keydown", function (e) {
-            if (e.keyCode == 13) {
-                makeCode();
-            }
-            document.getElementById("title").innerHTML = document.getElementById("text").value
+          if (e.keyCode == 13) {
+            makeCode();
+          }
+          document.getElementById("title").innerHTML = document.getElementById("text").value
         });
 
     </script>
+
+
   </body>
-</html>
+
+  </html>
