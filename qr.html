@@ -256,6 +256,17 @@
                   </div>
                 </div>
                 <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="show_text" onclick="show_the_text()" required checked>
+                    <label class="form-check-label" for="show_text">
+                      Show Text
+                    </label>
+                    <div class="invalid-feedback">
+                      You must agree before submitting.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
                   <button class="btn btn-primary" type="button" onclick="makeCardQRCode()">Submit form</button>
                 </div>
                 <div class="card mb-3 text-center" id="section-to-print">
@@ -397,8 +408,18 @@
       var URL = document.getElementById("url");
 
       card_qrcode.makeCode("MECARD:N:" + N_last.value + "," + N_first.value + ";ADR:" + ADR + ";TEL:" + TEL.value + ";EMAIL:" + EMAIL.value + ";URL:" + URL.value + ";;");
-      // document.getElementById("card_text").innerHTML = "MECARD:N:" + N_last.value + "," + N_first.value + ";ADR:" + ADR + ";TEL:" + TEL.value + ";EMAIL:" + EMAIL.value + ";URL:" + URL.value + ";;"
+      document.getElementById("card_text").innerHTML = "MECARD:N:" + N_last.value + "," + N_first.value + ";ADR:" + ADR + ";TEL:" + TEL.value + ";EMAIL:" + EMAIL.value + ";URL:" + URL.value + ";;"
     };
+
+    function show_the_text() {
+      var checkBox = document.getElementById("show_text");
+      var text = document.getElementById("card_text");
+      if (checkBox.checked == true){
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
+    }
 
 
 
