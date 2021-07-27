@@ -135,22 +135,34 @@
                 <br />
               </div>
             </div>
+
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
               <div class="row g-2 mt-3 mb-3">
-                <div class="col-md">
+                <div class="col-md-6">
                   <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="ssid" placeholder="SSID">
                     <label for="ssid">WIFI Name / SSID</label>
                   </div>
                 </div>
-                <div class="col-md">
+                <div class="col-md-6">
                   <div class="form-floating">
                     <input type="password" class="form-control" id="wifi_pw" placeholder="Password">
                     <label for="wifi_pw">Password</label>
                   </div>
                 </div>
-                <div class="col-auto">
-                  <button type="button" class="btn btn-primary" onclick="makeWIFICode()">Generate</button>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="wifi_textCheck" onclick="show_wifi_text()" required checked>
+                    <label class="form-check-label" for="wifi_textCheck">
+                      Show Text
+                    </label>
+                    <div class="invalid-feedback">
+                      You must agree before submitting.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="button" class="button button-w" onclick="makeWIFICode()">Generate</button>
                 </div>
               </div>
               <div class="card mb-3 text-center" id="section-to-print">
@@ -160,8 +172,6 @@
             </div>
 
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-
-
               <div class="row g-3 mt-3 mb-3">
                 <div class="col-md-3">
                   <label for="N_first" class="form-label">First name</label>
@@ -257,7 +267,7 @@
                 </div>
                 <div class="col-12">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="show_text" onclick="show_the_text()" required checked>
+                    <input class="form-check-input" type="checkbox" value="" id="show_text" onclick="show_card_text()" required checked>
                     <label class="form-check-label" for="show_text">
                       Show Text
                     </label>
@@ -267,7 +277,7 @@
                   </div>
                 </div>
                 <div class="col-12">
-                  <button class="btn btn-primary" type="button" onclick="makeCardQRCode()">Submit form</button>
+                  <button class="button w-button" type="button" onclick="makeCardQRCode()">Generate</button>
                 </div>
                 <div class="card mb-3 text-center" id="section-to-print">
                   <div id="card_qrcode" class="card-img-top d-flex justify-content-center p-3"></div>
@@ -411,9 +421,21 @@
       document.getElementById("card_text").innerHTML = "MECARD:N:" + N_last.value + "," + N_first.value + ";ADR:" + ADR + ";TEL:" + TEL.value + ";EMAIL:" + EMAIL.value + ";URL:" + URL.value + ";;"
     };
 
-    function show_the_text() {
+    function show_card_text() {
       var checkBox = document.getElementById("show_text");
       var text = document.getElementById("card_text");
+
+      if (checkBox.checked == true){
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
+    }
+
+    function show_wifi_text() {
+      var checkBox = document.getElementById("wifi_textCheck");
+      var text = document.getElementById("wifi_text");
+
       if (checkBox.checked == true){
         text.style.display = "block";
       } else {
