@@ -9,6 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <title>Drill Collar Weight</title>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
   <body onkeyup="buoyancyFactor(); deviatedWell()">
     <div class="container">
@@ -52,6 +55,10 @@
                 <div class="col-6">Buoyancy Factor: <strong id="v-bf">0.82</strong></div>
                 <div class="col-6">Drill Collar Weight: <strong id="v-dcw">76,519</strong> lb</div>
               </div>
+              <div class="row text-center">
+                <div class="col-6"><small>$$Buoyancy Factor = {(65.5 - Mud Weight) \over 65.5}$$</small></div>
+                <div class="col-6 small"><small><var>$$Drill Collar Weight = { WOB * ( 1+ ( Safety Factor / 100 )) \over Buoyancy Factor }$$</var></small></div>
+              </div>
             </div>
           </div>
         </div>
@@ -62,7 +69,6 @@
             </button>
           </h2>
           <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-
             <div class="accordion-body row align-items-center">
               <div class="col-sm">
                 <label for="d-wob" class="form-label">WOB required</label>
@@ -98,11 +104,16 @@
                 <div class="col-6">Buoyancy Factor: <strong id="d-bf">0.816793893129771</strong></div>
                 <div class="col-6">Drill Collar Weight: <strong id="d-dcw">88356</strong> lb</div>
               </div>
-            </div>          </div>
+              <div class="row text-center">
+                <div class="col-6"><small>$$Buoyancy Factor = {(65.5 - Mud Weight) \over 65.5}$$</small></div>
+                <div class="col-6 small"><small><var>$$Drill Collar Weight = {WOB * ( 1+ ( Safety Factor / 100 )) \over ( Buoyancy Factor * COS( Inclination * π/180 ))}$$</var></small></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script>

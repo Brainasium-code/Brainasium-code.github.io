@@ -23,11 +23,12 @@
 <body>
 
     <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+      <input type="text" id="myInput" placeholder="Search" onkeyup="mySearchFunction()">
         <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
           <!-- <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg> -->
           <span class="fs-5 fw-semibold">Drilling Calculations</span>
         </a>
-        <ul class="list-unstyled ps-0">
+        <ul class="list-unstyled ps-0" id="calculationList">
           <li class="mb-1">
             <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#applied-drilling-formulas-collapse" aria-expanded="false">
                 Applied Drilling Formulas
@@ -35,7 +36,7 @@
             <div class="collapse" id="applied-drilling-formulas-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                 <li><a href="/drilling/calculations/applied-drilling-formulas/drill-collar-weight" class="link-dark rounded">Drill Collar Weight</a></li>
-                <li><a href="/drilling/calculations/applied-drilling-formulas/#" class="link-dark rounded">Effective Mud Density</a></li>
+                <li><a href="/drilling/calculations/applied-drilling-formulas/effective-mud-density" class="link-dark rounded">Effective Mud Density</a></li>
                 <li><a href="/drilling/calculations/applied-drilling-formulas/#" class="link-dark rounded">Equivalent Circulating Density (ECD) Using Yield Point for MW less than or equal to 13 ppg</a></li>
                 <li><a href="/drilling/calculations/applied-drilling-formulas/#" class="link-dark rounded">Equivalent Circulating Density (ECD) Using Yield Point for MW more than 13 ppg</a></li>
                 <li><a href="/drilling/calculations/applied-drilling-formulas/#" class="link-dark rounded">Lag time</a></li>
@@ -270,6 +271,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+        <script>
+          function mySearchFunction() {
+            var input, filter, ul, li, item, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("calculationList");
+            li = ul.getElementsByTagName("li");  for (i = 0; i < li.length; i++) {
+              item = li[i];
+              txtValue = item.textContent || item.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+              } else {
+                li[i].style.display = "none";
+              }
+            }
+          }
+        </script>
 
 </body>
 
