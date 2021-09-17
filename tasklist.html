@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/tasklist.css">
+    <title>ClockTester</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+  <script>
+    function everySecond() {
+      var currentTime = new Date();
+
+      var s = currentTime.getSeconds() + currentTime.getMilliseconds() / 1000;
+      var m = currentTime.getMinutes();
+      m = m + (s / 60);
+      var h = currentTime.getHours();
+      h = h + (m / 60);
+      if (h == 24) {
+        h = 0;
+      }
+      if (h > 12) {
+        h = h - 12;
+      }
+      var hp = ((h + 1.75) * 360 / 12);
+      var mp = ((m + 50.5) * 360 / 60);
+      var sp = ((s + 23) * 360 / 60);
+      $("#seconds").css({
+        'transform': 'rotate(' + sp + 'deg)'
+      });
+      $("#minutes").css({
+        'transform': 'rotate(' + mp + 'deg)'
+      });
+      $("#hours").css({
+        'transform': 'rotate(' + hp + 'deg)'
+      });
+    }
+    setInterval(everySecond, 20);
+  </script>
+  <!-- <style>
+    .image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -200px 0 0 -200px;
+    }
+  </style> -->
+</head>
+
+<body>
+  <div>
+    <!-- <img class="image" src="https://66.media.tumblr.com/15b5e223866f9a2d5a592dd1dd31f493/tumblr_ptrh01lYI01v4sne9_540.gif"> -->
+    <!-- <img id="hours" class="image" src="https://66.media.tumblr.com/d315a9c84d38858205671a2d2a5b3126/tumblr_ptrh011jss1v4sne9_540.gif"> -->
+    <!-- <img id="minutes" class="image" src="https://66.media.tumblr.com/8e0cd8682849af842dda19c82c10af9d/tumblr_ptrh01LfWM1v4sne9_540.gif"> -->
+    <!-- <img id="seconds" class="image" src="https://66.media.tumblr.com/9773fc5b2345f553ad49985611c0a916/tumblr_ptrh01TQoo1v4sne9_540.gif"> -->
+    <img id="hours" class="image" src="">
+    <img id="minutes" class="image" src="">
+    <img id="seconds" class="image" src="img/clock/tick.svg">
+  </div>
+</body>
+
+</html>
